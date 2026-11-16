@@ -1,4 +1,4 @@
-# ☕ Awakened Java Classic
+# ☕ Classic Java Rise
 Exposing a classic Java backend (PostgreSQL &amp; Google Calendar) to autonomous agents using Spring AI and Model Context Protocol (MCP)
 
 > **No Rewrite Required:** Exposing a classic, deterministic Java backend (PostgreSQL & Google Calendar) to autonomous AI agents using **Spring AI** and the **Model Context Protocol (MCP)**.
@@ -11,7 +11,7 @@ Built for the **Java User Group Bangladesh (JUGBD) Conference 2026** session: *"
 
 Enterprise Java applications built over the last decade or two contain rock-solid business logic, relational databases, and external API integrations. Connecting them to modern Large Language Models (LLMs) does **not** require rewriting your backend or embedding probabilistic AI loops inside your core services.
 
-This project demonstrates how to keep your Spring Boot application **100% deterministic, type-safe, and predictable**, while exposing its capabilities as standardized **MCP Tools** so an external **Autonomous AI Agent** (like Claude Desktop) can orchestrate complex, multi-step workflows across systems.
+**Classic Java Rise** demonstrates how to keep your Spring Boot application **100% deterministic, type-safe, and predictable**, while exposing its capabilities as standardized **MCP Tools** so an external **Autonomous AI Agent** (like Claude Desktop) can orchestrate complex, multi-step workflows across systems.
 
 ---
 
@@ -31,7 +31,7 @@ This project demonstrates how to keep your Spring Boot application **100% determ
                                   |
 +---------------------------------v---------------------------------+
 
-|                   Awakened Java Classic Backend                   |
+|                     Classic Java Rise Backend                     |
 |                 (Spring Boot + Spring AI MCP Server)              |
 |                                                                   |
 |  * 100% Deterministic Java Code (Zero LLM inside the server)      |
@@ -89,8 +89,8 @@ This project demonstrates how to keep your Spring Boot application **100% determ
 
 ### 1. Clone & Build the Project
 ```bash
-git clone https://github.com<your-username>/awakened-java-classic.git
-cd awakened-java-classic
+git clone https://github.com<your-username>/classic-java-rise.git
+cd classic-java-rise
 mvn clean package -DskipTests
 ```
 
@@ -98,7 +98,7 @@ mvn clean package -DskipTests
 Update `src/main/resources/application.properties` with your local PostgreSQL credentials:
 
 ```properties
-spring.application.name=awakened-java-classic
+spring.application.name=classic-java-rise
 
 # Disable banner and console logs so STDIO transport stays clean for JSON-RPC
 spring.main.banner-mode=off
@@ -110,7 +110,7 @@ spring.datasource.username=your_username
 spring.datasource.password=your_password
 
 # Spring AI MCP Server Configuration
-spring.ai.mcp.server.name=awakened-java-classic
+spring.ai.mcp.server.name=classic-java-rise
 spring.ai.mcp.server.version=1.0.0
 ```
 
@@ -126,11 +126,11 @@ Add your Spring Boot JAR as an MCP server:
 ```json
 {
   "mcpServers": {
-    "awakened-java-classic": {
+    "classic-java-rise": {
       "command": "java",
       "args": [
         "-jar",
-        "/ABSOLUTE/PATH/TO/awakened-java-classic/target/awakened-java-classic-0.0.1-SNAPSHOT.jar"
+        "/ABSOLUTE/PATH/TO/classic-java-rise/target/classic-java-rise-0.0.1-SNAPSHOT.jar"
       ]
     }
   }
@@ -141,8 +141,6 @@ Restart **Claude Desktop**. You should see the hammer/tools icon indicating your
 ---
 
 ## 💬 Live Demo Prompts to Try
-
-Once connected in Claude Desktop, try these prompts to see autonomous cross-tool orchestration in action:
 
 1. **Database Query & Formatting:**
    > *"Fetch the list of students and their enrolled courses from our PostgreSQL database, and present it as a clean summary table."*
@@ -157,13 +155,13 @@ Once connected in Claude Desktop, try these prompts to see autonomous cross-tool
 
 ## 🔒 Production Guardrails Note
 
-When exposing classic backends over MCP:
-* Ensure `spring.main.banner-mode=off` is set when using **STDIO** transport, otherwise Spring's startup ASCII banner will corrupt the JSON-RPC stream.
-* Restrict database accounts used by MCP tools to **read-only** roles unless write operations are explicitly audited.
-* Never hardcode OAuth secrets or database passwords in version control.
+* Keep `spring.main.banner-mode=off` when using **STDIO** transport so startup logs do not corrupt the JSON-RPC stream.
+* Restrict database credentials used by MCP tools to **read-only** roles unless write operations are explicitly audited.
+* Never commit `credentials.json` or database passwords to version control (add them to `.gitignore`).
 
 ---
 
 ## 📄 License
 
 This project is open-source and available under the [MIT License](LICENSE).
+
