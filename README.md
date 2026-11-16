@@ -1,4 +1,4 @@
-# ☕ Classic Java Rise
+# ☕ Classic Java Rise (in AI LLM era)
 Exposing a classic Java backend (PostgreSQL &amp; Google Calendar) to autonomous agents using Spring AI and Model Context Protocol (MCP)
 
 > **No Rewrite Required:** Exposing a classic, deterministic Java backend (PostgreSQL & Google Calendar) to autonomous AI agents using **Spring AI** and the **Model Context Protocol (MCP)**.
